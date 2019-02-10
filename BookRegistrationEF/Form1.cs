@@ -40,5 +40,27 @@ namespace BookRegistrationEF
             BookDb.AddBook(b);
             MessageBox.Show("Book added!");
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //Object Initialization Syntax
+            Customer newCust = new Customer()
+            {
+                FirstName = "J",
+                LastName = "H",
+                DateOfBirth = new DateTime(1980, 1, 1),
+                Title = "Mr."
+            };
+
+            newCust = CustomerDb.AddCustomer(newCust);
+            MessageBox.Show("Customer added!");
+
+            newCust.FirstName = "Jim";
+            CustomerDb.Update(newCust);
+            MessageBox.Show("Customer updated!");
+
+            CustomerDb.DeleteCustomer(newCust);
+            MessageBox.Show("Customer deleted!");
+        }
     }
 }
